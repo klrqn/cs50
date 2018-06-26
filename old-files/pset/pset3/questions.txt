@@ -1,0 +1,6 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+1. don't understand how LIMIT is used in "generate.c" on line 50

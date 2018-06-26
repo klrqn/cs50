@@ -1,0 +1,15 @@
+Return - 
+
+boolean in C - 0 is true, 1 is false? convention.
+
+char* 
+
+scanf
+
+enter what "make" does into computer terminal to compile locally?
+
+how to debug locally (when in a debugger in C9 it doesn't print as it is always running through loops etc.)
+
+#include quarter 25
+
+float c = (f - 32) / ((float) 5 / 9); --- why doesn't this work

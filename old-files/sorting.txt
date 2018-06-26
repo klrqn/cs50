@@ -1,0 +1,77 @@
+Bubble
+------
+Set Swap Counter = -1 (any non-zero)
+Repeat until Swap Counter = 0
+    Reset Swap Counter to 0
+    Look at each adjacent pair
+        If adjacent elements A < B
+            Swap Elements
+            Swap Counter ++
+            
+O(n^2)      Ω(n)            
+            
+********************************************************************************
+Selection Sort
+--------------
+Repeat until no unsorted elements remain:
+    Search the unsorted part of the data to find the smallest value
+    Swap the smallest found value with the first element in the unsorted part of the array
+    
+O(n^2)      Ω(n^2)       
+    
+********************************************************************************
+Insertion Sort    
+--------------
+Call the first element of the array "sorted"
+Repeat until all elements are sorted:
+    Look at the next unsorted element. 
+    Insert into the "sorted portion" by shifting the requisite number of elements.
+    
+O(n^2)      Ω(n)
+
+********************************************************************************
+
+Merge Sort (Recursion)
+In merge sort, the idea of the algorithm is to sort smaller arrays and then combine those arrays together (merge them) in sorted order
+-----------
+sorth the left half of the array (assuming n > 1)
+Sort the right half of the array (assuming n > 1)
+    Merge the two halves together
+
+O(n log n)      Ω(n log n)
+
+on input of n elements
+    if n < 2
+        return
+    else
+        sort the left half of elements
+        sort the right half of elements
+        merge sorted half
+
+
+********************************************************************************
+
+
+Linear Search
+-------------
+Repeat, starting with the first element:
+    If the first element is what you're looking for (the target), stop. 
+    Otherwise, move to the next element
+    
+O(n)      Ω(1)
+
+********************************************************************************
+ 
+Binary Search (Condition: Must Be Sorted)
+-------------
+Repeat this condition until the (sub)array is of size 0:
+    Calculate the middle point of the current (sub)array
+    If target is at the middle, stop.
+        Else, if the target is less than what's at the middle, repeat,
+            changing the (new) end point to be just to the left of the middle
+        Else if the target is greater than what's at the middle, repeat,
+            changing the (new) start point to be just to the right of the middle
+
+O(log n)      Ω(1)
+
+********************************************************************************

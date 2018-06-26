@@ -1,0 +1,32 @@
+
+~/workspace/wherever
+
+$ for i in {1..8}; do mkdir module$i; for j in exercises followalongs misc studios; do mkdir module$i/$j; done; mkdir pset$i; done
+
+$ for i in {1..8}; do rm -rf module$i; for j in exercises followalongs misc studios; do rm -rf module$i/$j; done; rm -rf pset$i; done
+
+creates the working directories we need for class in one line!
+
+CLANG
+=====
+-E preassembly
+-S preassembly (# stuff), and Compiling
+    clang -S hello.c (a.out)
+    
+    outputs.s (assembly code)
+    
+-c (Compiling) object file - just 1's and 0's
+
+clang hello.c -o hello (executable)
+
+:q! QUIT
+
+hello.c - c file 
+hello.s - assembly
+hello.o - 
+
+diff 'one file' 'two file' - tests if two files are different
+
+ctrl-d "EOF" "End of File" character. compels end of inputs?
+
+echo $?     prints the return value of an executable

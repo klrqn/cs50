@@ -1,0 +1,58 @@
+.heading {
+    color: white; /* text color */
+    background-color: #604560;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    padding: 30px;
+}
+
+.card {
+    background-color: white;
+    color : #3a8181;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.card {
+    margin: 70px;
+    width: 50%;
+    padding: 30px 20px;
+    border: 3px solid green;
+    border-color: #efefef;
+    position: absolute;
+    color: whit;
+    
+}
+
+#submit_button {
+    box-shadow: 5px 5px #aaaaaa;
+    background-color: orange;
+    color: white;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    position: relative;
+    
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+/* the same as specifically calling out #submit_button but less specific...*/
+/* ie all submit buttons now do this*/
+
+
+/*
+input[type=submit]:hover {
+    background-color: #FFC170;
+
+input[type=submit] {
+    background-color: #EA8B10;
+    border: 5px;
+    width: 80%;
+    color: white;
+    text-decoration: none;
+    margin: 1px 80px;
+    cursor: pointer;
+    

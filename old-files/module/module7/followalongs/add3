@@ -1,0 +1,8 @@
+#!/usr/bin/php
+chmod a+x add3 (use on command line before running ./<file>)
+
+Please give me a number
+<?php $num1 = readline() ?>
+Please give me a second number
+<?php $num2 = readline() ?>
+The sum of these two numbers is <?= ($num1 + $num2) . "\n"?>

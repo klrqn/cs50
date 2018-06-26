@@ -1,0 +1,89 @@
+Every computer connected to the Internet needs a unique address, just like houses that want to receive mail need postal addresses. Where do these addresses come from? There’s a special server on most networks called a DHCP server, which stands for Dynamic Host Configuration Protocol, which assigns an address each time a new computer joins the local network.
+These unique addresses to identify each device on the Internet are called IP addresses (8.8.8.8)
+10.#.#.#, 172.16.#.# - 172.31.#.#, or 192.168.#.# are private IP addresses
+It’s common to name routers after the nearest airport code or major cities.
+traceroute -q 1 www.mit.edu, runs the traceroute program in quiet mode, once, to MIT’s website:
+
+TCP, or Transmission Control Protocol, is another protocol used with IP on the Internet (you may have seen TCP/IP)
+When you request a webpage, or send or receive an email, or any other kind of data on the Internet, it doesn’t come in one huge chunk of bits - instead, it’s broken up into a bunch of packets.
+With TCP, we have a set of conventional port numbers associated with certain services.
+Port Numbers:
+21 FTP - file transfer protocol (assigned port 21 a looong time ago)
+25 SMTP - (for outbound email)
+53 DNS - 
+80 HTTP - 
+443 HTTPS - (secure)
+
+Modern home networks consist of access points that combine a router, a modem , a switch, and other technologies together in a single device. Modern business networks or large-scale widde-area networks (WANs) still frequently have these as separate devices to allow the size of their network to scale more easily
+
+
+DEFINITIONS - 
+IP Address - Unique Identifier of your computer on a Network (internet protocol)
+IPv4 - 32 bit address - 255.255.255.255
+IPv6 - 128 bit addresses - a.b.c.d.e.f.g.h. 8 clusters of 16 bytes.
+    hexadecimal: 1234:6+89:90ab:cdef:fedc:ba09:8765:4321
+    2001:4860:4860:0:0:0:0:8844 (google)
+    2001:4860:4860::8844 (omitting 0's with double colon)
+    
+DHCP - Dynamic Host Configuration Protocol Server
+    somewhere between  your computer and the internet
+    has a list of valid IP addresses, assigns you the IP address
+    
+DNS - Domain Name Systems, translates IP addresses to more memorable names
+
+inter connected network - INTER-NET
+
+TCP/IP - Transmission Control Protocol - Internet Protocol
+    Guarantees Delivery. TCP makes sure all packets are delivered
+    
+Firewall - A device that all internet traccif at a particular location has to go through, which blocks access to certain sites by blocking outgoing requests to certain IP addresses or ranges.
+
+VPN - Virtual Private Network. gives you an encryupted connection between your computer and a server elsewhere
+
+Port Number - how a specific service, or utility, or program is identified on a machine
+Couple an IP address with a Port Number, we can identify a particular service running on a particular machine _ TCP DOES THIS.
+TCP also guarantees deliver of packets. does this by including information about how many packets the receiver should get and in what order.
+TCP - What port is this going to, in what order.
+IP - Gets those Data Packets, what IP address(machine) is getting this data?
+                                                (IP(TCP(Data)))
+
+GET is the type of request that a browser sends to a server to get information.
+GET / HTTP/1.1
+Host: www.google.com
+...                     simple msg would be opened by the server
+                        the "/" after GET is just asking for the Root Directory
+                        HTTP/1.1 means we're using version 1.1 or HTTP 
+
+Message back as response:
+HTTP/1.1 200 OK
+Content-Type: text/html
+...                     first line confirms we're using version 1.1 to communicate
+                        200 is status code that means OK: it has what we're looking for
+Other Codes:
+200 OK
+301 Moved Permanently
+302 Found
+401 Unauthorized
+403 Forbidden
+404 Not Found
+500 Internal Server Error
+
+GET disadvantage: every parameter has to be added to the end of the URL
+    Bad for Passwords!
+    
+So we can use a POST request:
+
+POST /login.php HTTP/1.1
+Host: www.facebook.com
+...
+email=sbb@gmail.com&password=1234
+
+This gives the inputs email&password to facebook's login.php
+
+
+
+Hypertext Transfer Protocol (HTTP)
+An Application Protocol, which specifically dictates the format by which clients request web pages from a server, and the format via which servers return information to clients.
+
+HTML SYNTAX
+

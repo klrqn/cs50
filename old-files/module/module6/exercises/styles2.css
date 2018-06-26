@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    text-size: 24pt;
+    color: green; 
+    font-family: arial; 
+    background-color: gray; }
+    
+body>p {
+    color: blue;
+}
+
+div {
+    background: url(tri.png);
+    background-size: 900px 600px;
+    background-repeat: repeat;
+    opacity: 0; 
+}
