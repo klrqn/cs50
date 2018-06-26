@@ -36,15 +36,19 @@ int main(void)
     unsigned long long firstDigit = cc / (pow(10, digitcounter-1));
     unsigned long long secondDigitTotal = cc - firstDigit * (pow(10, digitcounter-1));
     unsigned long long secondDigit = secondDigitTotal / pow(10, digitcounter-2);
-    // printf("second digit: %llu\n" , secondDigit);
-    // printf("first digit: %llu\n" , firstDigit);
+
+
+
+    printf("first digit: %llu\n" , firstDigit);
+    printf("second digit: %llu\n" , secondDigit);
+
+
 
     // basic length validation
-    if (digitcounter != 13 && digitcounter != 15 && digitcounter != 13)
+    if (digitcounter != 13 && digitcounter != 15 && digitcounter != 16)
     {
-        printf("invalid number");
+        printf("INVALID\n");
         return 0;
-
     }
 
     // checksum
@@ -61,7 +65,7 @@ int main(void)
 
 
         // Multiply every other digit by 2, starting with the number’s second-to-last digit, and then add those products' digits together.
-        if (i % 2 == 1)
+        if ((i % 2 == 1 && digitcounter % 2 == 1) || (i % 2  == 0 && digitcounter % 2 == 0))
         {
             // get the digit in question an multiply by 2
             int digit = remain * 2;
@@ -69,15 +73,18 @@ int main(void)
             if (digit > 10) {
                 // add the digits together and add them to the sum
                 multiplySum += 1 + (digit % 10);
+                // printf("adding this: 1 + %i\n", digit%10);
             } else {
                 // otherwise add the doubled amount to the sum
                 multiplySum += remain * 2;
+                // printf("adding this: %i\n", remain * 2);
             }
         }
 
-        if (i % 2 == 0)
+        if ((i % 2 == 1 && digitcounter % 2 == 0) || (i % 2  == 0 && digitcounter % 2 == 1))
         {
-            regularSum += remain * 2;
+            regularSum += remain;
+            // printf("adding this: %i\n", remain * 2);
             // printf("all others adding: %i\n", regularSum);
         }
 
@@ -89,14 +96,20 @@ int main(void)
     // printf("total multiplied & summed digits: %i\n", multiplySum);
     // printf("total other summed digits: %i\n", regularSum);
     totalSum = multiplySum + regularSum;
+
+
+
     printf("the total sum: %i\n", totalSum);
+
+
+
 
     // if the last digit of the Luhns Algorithm Sum is 0
     if (totalSum % 10 == 0)
     {
         // AMEX Specific - starts with 34 or 37,
         if (digitcounter == 15 && firstDigit == 3 && (secondDigit == 4 || secondDigit == 7)) {
-            printf("AMEX!\n");
+            printf("AMEX\n");
         }
 
         if (firstDigit == 5 && (secondDigit == 1 || secondDigit == 2 || secondDigit == 3 || secondDigit == 4 || secondDigit == 5)) {
@@ -119,4 +132,5 @@ int main(void)
 
     // printf("%lu\n", cc);
     // printf("%i\n", digitcounter);
+    return 0;
 }
