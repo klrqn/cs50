@@ -54,6 +54,7 @@ int main(void) {
 
     double doubleNum = 45.4545454545454545454545454545454545454545454;
     printf("%f\n", doubleNum);
+    printf("double: %30f\n", doubleNum); // takes up 30 spaces
 
     // =============================================================================== //
     // VOID is a type (not a data type)

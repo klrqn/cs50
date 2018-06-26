@@ -10,10 +10,6 @@
 // report (printf) whether it is a valid AMEX, MasterCard, or Visa number.
 // output be AMEX\n or MASTERCARD\n or VISA\n or INVALID\n, nothing more, nothing less, and that main always return 0
 
-
-
-
-
 int main(void)
 {
     // prompt user for a potential credit card number
@@ -39,8 +35,8 @@ int main(void)
 
 
 
-    printf("first digit: %llu\n" , firstDigit);
-    printf("second digit: %llu\n" , secondDigit);
+    // printf("first digit: %llu\n" , firstDigit);
+    // printf("second digit: %llu\n" , secondDigit);
 
 
 
@@ -57,7 +53,7 @@ int main(void)
     int totalSum = 0;
     unsigned long check = cc;
 
-    for (int i = 0; i < digitcounter; i++) {
+    for (int i = digitcounter-1; i >= 0; i--) {
         int remain = check % 10;
         check /= 10;
         // printf("cc divided by 10: %lu\n", check);
@@ -65,12 +61,12 @@ int main(void)
 
 
         // Multiply every other digit by 2, starting with the number’s second-to-last digit, and then add those products' digits together.
-        if ((i % 2 == 1 && digitcounter % 2 == 1) || (i % 2  == 0 && digitcounter % 2 == 0))
+        if ((i % 2 == 0 && digitcounter % 2 == 0) || (i % 2  == 1 && digitcounter % 2 == 1))
         {
             // get the digit in question an multiply by 2
             int digit = remain * 2;
             // if the multiplied digit is greater than 10
-            if (digit > 10) {
+            if (digit > 9) {
                 // add the digits together and add them to the sum
                 multiplySum += 1 + (digit % 10);
                 // printf("adding this: 1 + %i\n", digit%10);
@@ -81,10 +77,10 @@ int main(void)
             }
         }
 
-        if ((i % 2 == 1 && digitcounter % 2 == 0) || (i % 2  == 0 && digitcounter % 2 == 1))
+        if ((i % 2 == 0 && digitcounter % 2 == 1) || (i % 2  == 1 && digitcounter % 2 == 0))
         {
             regularSum += remain;
-            // printf("adding this: %i\n", remain * 2);
+            // printf("adding this: %i\n", remain);
             // printf("all others adding: %i\n", regularSum);
         }
 
@@ -99,7 +95,7 @@ int main(void)
 
 
 
-    printf("the total sum: %i\n", totalSum);
+    // printf("the total sum: %i\n", totalSum);
 
 
 
@@ -110,17 +106,21 @@ int main(void)
         // AMEX Specific - starts with 34 or 37,
         if (digitcounter == 15 && firstDigit == 3 && (secondDigit == 4 || secondDigit == 7)) {
             printf("AMEX\n");
+            return 0;
         }
 
         if (firstDigit == 5 && (secondDigit == 1 || secondDigit == 2 || secondDigit == 3 || secondDigit == 4 || secondDigit == 5)) {
             printf("MASTERCARD\n");
+            return 0;
         }
 
         if (firstDigit == 4) {
             printf("VISA\n");
+            return 0;
         }
     } else {
         printf("INVALID\n");
+        return 0;
     }
 
     // Add the sum to the sum of the digits that weren’t multiplied by 2.
@@ -132,5 +132,19 @@ int main(void)
 
     // printf("%lu\n", cc);
     // printf("%i\n", digitcounter);
+    printf("INVALID\n");
     return 0;
 }
+
+// TESTS
+// 378282246310005  => AMEX
+// 371449635398431  => AMEX
+// 5555555555554444 => MASTERCARD
+// 5105105105105100 => MASTERCARD
+// 4111111111111111 => VISA
+// 4012888888881881 => VISA
+// 1234567890       => INVALID
+// 369421438430814  => INVALID
+// 4062901840       => INVALID
+// 5673598276138003 => INVALID
+// 4111111111111113 => INVALID
