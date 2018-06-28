@@ -35,4 +35,5 @@ int main (void) {
             printf("%c", (char) phrase[i]);
         }
     }
+    printf("\n");
 }
